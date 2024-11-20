@@ -9,7 +9,7 @@ public class InsuranceServiceJapan implements InsuranceService{
     ContractNumberGenerator generator = new ContractNumberGenerator();
     InsuranceCalcBrazilService calcBrazil = new InsuranceCalcBrazilService();
     @Override
-    public InsuranceContract dslfxfghtlkjtybz(BigDecimal coverageAmount, String fio, TypeOfInsurance typeOfInsurance) {
+    public InsuranceContract createContract(BigDecimal coverageAmount, String fio, TypeOfInsurance typeOfInsurance) {
         return new InsuranceContract(generator.generate(),
                 calcBrazil.insuranceCost(coverageAmount, typeOfInsurance),
                 coverageAmount,

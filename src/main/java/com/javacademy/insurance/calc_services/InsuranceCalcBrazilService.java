@@ -1,9 +1,9 @@
 package com.javacademy.insurance.calc_services;
 
 import com.javacademy.insurance.contract_components.TypeOfInsurance;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-
 public class InsuranceCalcBrazilService implements InsuranceCalcService {
     private static final BigDecimal ROBBERY_COEFFICIENT = BigDecimal.valueOf(0.05);
     private static final BigDecimal ROBBERY_ADD = BigDecimal.valueOf(300);

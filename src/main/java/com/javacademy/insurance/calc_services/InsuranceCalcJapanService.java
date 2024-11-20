@@ -1,9 +1,11 @@
 package com.javacademy.insurance.calc_services;
 
 import com.javacademy.insurance.contract_components.TypeOfInsurance;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+@Component
 public class InsuranceCalcJapanService implements InsuranceCalcService{
     private static final BigDecimal ROBBERY_COEFFICIENT_JAPAN = BigDecimal.valueOf(0.01);
     private static final BigDecimal ROBBERY_ADD_JAPAN = BigDecimal.valueOf(10_000);

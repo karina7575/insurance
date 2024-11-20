@@ -1,6 +1,7 @@
 package com.javacademy.insurance.contract_components;
 
 import lombok.AllArgsConstructor;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
@@ -8,6 +9,7 @@ import java.math.BigDecimal;
  * страховой договор
  */
 @AllArgsConstructor
+@ToString
 public class InsuranceContract {
     //номер договора
     private final long contractNumber;
