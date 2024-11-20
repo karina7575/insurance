@@ -1,11 +1,16 @@
+package com.javacademy.insurance.contract_components;
+
+import lombok.AllArgsConstructor;
+
 import java.math.BigDecimal;
 
 /**
  * страховой договор
  */
+@AllArgsConstructor
 public class InsuranceContract {
     //номер договора
-    private final String contractNumber;
+    private final long contractNumber;
     //стоимость страховки
     private BigDecimal insuranceCost;
     //сумма покрытия
