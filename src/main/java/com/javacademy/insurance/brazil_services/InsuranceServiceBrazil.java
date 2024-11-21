@@ -1,6 +1,11 @@
 package com.javacademy.insurance.brazil_services;
 
-import com.javacademy.insurance.contract_components.*;
+import com.javacademy.insurance.Archive;
+import com.javacademy.insurance.contract_components.ContractNumberGenerator;
+import com.javacademy.insurance.contract_components.Country;
+import com.javacademy.insurance.contract_components.Currency;
+import com.javacademy.insurance.contract_components.InsuranceContract;
+import com.javacademy.insurance.contract_components.InsuranceType;
 import com.javacademy.insurance.InsuranceService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +21,7 @@ import java.math.BigDecimal;
 public class InsuranceServiceBrazil implements InsuranceService {
     private final ContractNumberGenerator generator;
     private final InsuranceCalcBrazilService calcBrazil;
+    private Archive archive;
 
     @Override
     public InsuranceContract createContract(BigDecimal coverageAmount, String fio, InsuranceType typeOfInsurance) {
@@ -27,7 +33,7 @@ public class InsuranceServiceBrazil implements InsuranceService {
                 Country.BRAZIL,
                 typeOfInsurance,
                 false);
-        log.info("Договор {}", contract);
+        archive.putContract(contract);
         return contract;
     }
 

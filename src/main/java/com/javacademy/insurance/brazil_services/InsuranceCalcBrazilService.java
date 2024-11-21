@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+
 @RequiredArgsConstructor
 @Component
 @Profile("brazil")
@@ -17,7 +18,7 @@ public class InsuranceCalcBrazilService implements InsuranceCalcService {
 
     @Override
     public BigDecimal insuranceCost(BigDecimal coverageAmount, InsuranceType typeOfInsurance) {
-        switch(typeOfInsurance) {
+        switch (typeOfInsurance) {
             case ROBBERY_PROTECTION:
                 return coverageAmount.multiply(property.getRobberyCoefficient()).add(ROBBERY_ADD);
             case HEALTH_INSURANCE:

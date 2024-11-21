@@ -1,7 +1,12 @@
 package com.javacademy.insurance.japan_services;
 
+import com.javacademy.insurance.Archive;
 import com.javacademy.insurance.InsuranceService;
-import com.javacademy.insurance.contract_components.*;
+import com.javacademy.insurance.contract_components.ContractNumberGenerator;
+import com.javacademy.insurance.contract_components.Country;
+import com.javacademy.insurance.contract_components.Currency;
+import com.javacademy.insurance.contract_components.InsuranceContract;
+import com.javacademy.insurance.contract_components.InsuranceType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
@@ -16,6 +21,7 @@ import java.math.BigDecimal;
 public class InsuranceServiceJapan implements InsuranceService {
     private final ContractNumberGenerator generator;
     private final InsuranceCalcJapanService calcJapan;
+    private final Archive archive;
 
     @Override
     public InsuranceContract createContract(BigDecimal coverageAmount, String fio, InsuranceType typeOfInsurance) {
@@ -27,13 +33,14 @@ public class InsuranceServiceJapan implements InsuranceService {
                 Country.JAPAN,
                 typeOfInsurance,
                 false);
-        log.info("Договор {}", contract);
+        archive.putContract(contract);
         return contract;
-
     }
 
     @Override
     public InsuranceContract insurancePayment(String contractNumber) {
-        return null;
+        InsuranceContract contract = archive.getContract(contractNumber);
+        contract.setPaid(true);
+        return contract;
     }
 }

@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import java.math.BigDecimal;
 
@@ -19,7 +20,7 @@ public class InsuranceServiceJapanIT {
     private InsuranceServiceJapan japanService;
     @MockBean
     private InsuranceCalcJapanService japanCalc;
-    @MockBean
+    @SpyBean
     private Archive archive;
     @MockBean
     private ContractNumberGenerator generator;
@@ -42,5 +43,13 @@ public class InsuranceServiceJapanIT {
         Mockito.when(japanCalc.insuranceCost(BigDecimal.valueOf(10_000_000), InsuranceType.ROBBERY_PROTECTION)).thenReturn(BigDecimal.valueOf(162_000));
         InsuranceContract contract = japanService.createContract(BigDecimal.valueOf(10_000_000), fio, InsuranceType.ROBBERY_PROTECTION);
         Assertions.assertEquals(expected, contract);
+    }
+
+    @Test
+    public void paySuccess() {
+        InsuranceContract expected = new InsuranceContract("001", BigDecimal.valueOf(162_000), BigDecimal.valueOf(10_000_000), Currency.YEN, "Иванов Иван Иванович", Country.JAPAN, InsuranceType.HEALTH_INSURANCE, true);
+        Mockito.when(archive.getContract("001")).thenReturn(expected);
+        InsuranceContract result = japanService.insurancePayment("001");
+        Assertions.assertEquals(expected, result);
     }
 }

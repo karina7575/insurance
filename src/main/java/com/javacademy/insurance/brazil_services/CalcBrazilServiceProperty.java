@@ -12,6 +12,6 @@ import java.math.BigDecimal;
 @ConfigurationProperties(prefix = "brazil")
 @Profile("brazil")
 public class CalcBrazilServiceProperty {
-        private BigDecimal robberyCoefficient;
-        private BigDecimal healthCoefficient;
+    private BigDecimal robberyCoefficient;
+    private BigDecimal healthCoefficient;
 }

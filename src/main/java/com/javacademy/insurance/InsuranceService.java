@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public interface InsuranceService {
 
-public InsuranceContract createContract (BigDecimal coverageAmount, String fio, InsuranceType typeOfInsurance);
+    InsuranceContract createContract(BigDecimal coverageAmount, String fio, InsuranceType typeOfInsurance);
 
-public InsuranceContract insurancePayment (String contractNumber);
+    InsuranceContract insurancePayment(String contractNumber);
 }
