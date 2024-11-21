@@ -11,10 +11,6 @@ import java.math.BigDecimal;
 public class InsuranceApplication {
 
 	public static void main(String[] args) {
-
-		ConfigurableApplicationContext context = SpringApplication.run(InsuranceApplication.class, args);
-		InsuranceService service = context.getBean(InsuranceService.class);
-		service.createContract(BigDecimal.valueOf(300_000), "Иванов Иван Иванович", InsuranceType.HEALTH_INSURANCE);
+		SpringApplication.run(InsuranceApplication.class, args);
 	}
-
 }
