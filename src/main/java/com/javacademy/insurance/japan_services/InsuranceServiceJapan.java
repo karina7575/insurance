@@ -3,8 +3,6 @@ package com.javacademy.insurance.japan_services;
 import com.javacademy.insurance.Archive;
 import com.javacademy.insurance.InsuranceService;
 import com.javacademy.insurance.contract_components.ContractNumberGenerator;
-import com.javacademy.insurance.contract_components.Country;
-import com.javacademy.insurance.contract_components.Currency;
 import com.javacademy.insurance.contract_components.InsuranceContract;
 import com.javacademy.insurance.contract_components.InsuranceType;
 import lombok.RequiredArgsConstructor;
@@ -22,15 +20,16 @@ public class InsuranceServiceJapan implements InsuranceService {
     private final ContractNumberGenerator generator;
     private final InsuranceCalcJapanService calcJapan;
     private final Archive archive;
+    private final CalcJapanServiceProperty property;
 
     @Override
     public InsuranceContract createContract(BigDecimal coverageAmount, String fio, InsuranceType typeOfInsurance) {
         InsuranceContract contract = new InsuranceContract(generator.generate(),
                 calcJapan.insuranceCost(coverageAmount, typeOfInsurance),
                 coverageAmount,
-                Currency.YEN,
+                property.getCurrency(),
                 fio,
-                Country.JAPAN,
+                property.getCountry(),
                 typeOfInsurance,
                 false);
         archive.putContract(contract);

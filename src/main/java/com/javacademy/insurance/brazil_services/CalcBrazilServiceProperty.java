@@ -1,5 +1,7 @@
 package com.javacademy.insurance.brazil_services;
 
+import com.javacademy.insurance.contract_components.Country;
+import com.javacademy.insurance.contract_components.Currency;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -14,4 +16,6 @@ import java.math.BigDecimal;
 public class CalcBrazilServiceProperty {
     private BigDecimal robberyCoefficient;
     private BigDecimal healthCoefficient;
+    private Currency currency;
+    private Country country;
 }
