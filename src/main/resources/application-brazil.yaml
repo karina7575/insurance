@@ -1,0 +1,5 @@
+brazil:
+  currency: REAL
+  country: BRAZIL
+  robbery-coefficient: 0.05
+  health-coefficient: 0.03

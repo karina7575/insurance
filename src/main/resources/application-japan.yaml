@@ -1,0 +1,5 @@
+japan:
+  currency: YEN
+  country: JAPAN
+  robbery-coefficient: 0.01
+  health-coefficient: 0.015

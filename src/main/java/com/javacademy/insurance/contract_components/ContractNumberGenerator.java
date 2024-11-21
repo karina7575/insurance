@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ContractNumberGenerator {
     public long generate () {
-        return (long) Math.random();
+        return 1 + (long) (Math.random() * 1000000);
     }
 
 }

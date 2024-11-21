@@ -24,7 +24,7 @@ public class InsuranceContract {
     //страна действия
     private Country countryOfContract;
     //тип страховки: медицинское страхование или защита от грабежа
-    private TypeOfInsurance typeOfInsurance;
+    private InsuranceType typeOfInsurance;
     //статусы договора:  неоплаченный договор, оплаченный договор
     private boolean isPaid;
 
