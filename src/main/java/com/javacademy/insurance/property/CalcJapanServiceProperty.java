@@ -1,4 +1,4 @@
-package com.javacademy.insurance.japan_services;
+package com.javacademy.insurance.property;
 
 import com.javacademy.insurance.contract_components.Country;
 import com.javacademy.insurance.contract_components.Currency;

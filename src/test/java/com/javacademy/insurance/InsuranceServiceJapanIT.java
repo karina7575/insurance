@@ -1,8 +1,8 @@
 package com.javacademy.insurance;
 
 import com.javacademy.insurance.contract_components.*;
-import com.javacademy.insurance.japan_services.InsuranceCalcJapanService;
-import com.javacademy.insurance.japan_services.InsuranceServiceJapan;
+import com.javacademy.insurance.service.calc.InsuranceCalcJapanService;
+import com.javacademy.insurance.service.insurance.InsuranceServiceJapan;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.math.BigDecimal;
 
 @SpringBootTest
+@ActiveProfiles("japan")
 public class InsuranceServiceJapanIT {
 
     @Autowired

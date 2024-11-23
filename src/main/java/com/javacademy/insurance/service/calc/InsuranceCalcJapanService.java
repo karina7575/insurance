@@ -1,7 +1,8 @@
-package com.javacademy.insurance.japan_services;
+package com.javacademy.insurance.service.calc;
 
 import com.javacademy.insurance.InsuranceCalcService;
 import com.javacademy.insurance.contract_components.InsuranceType;
+import com.javacademy.insurance.property.CalcJapanServiceProperty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;

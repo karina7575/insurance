@@ -1,15 +1,17 @@
 package com.javacademy.insurance;
 
 import com.javacademy.insurance.contract_components.InsuranceType;
-import com.javacademy.insurance.japan_services.InsuranceCalcJapanService;
+import com.javacademy.insurance.service.calc.InsuranceCalcJapanService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.math.BigDecimal;
 
 @SpringBootTest
+@ActiveProfiles("japan")
 public class CalcJapanIT {
 
     @Autowired

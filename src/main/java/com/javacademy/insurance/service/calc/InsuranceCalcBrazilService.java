@@ -1,6 +1,7 @@
-package com.javacademy.insurance.brazil_services;
+package com.javacademy.insurance.service.calc;
 
 import com.javacademy.insurance.InsuranceCalcService;
+import com.javacademy.insurance.property.CalcBrazilServiceProperty;
 import com.javacademy.insurance.contract_components.InsuranceType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
